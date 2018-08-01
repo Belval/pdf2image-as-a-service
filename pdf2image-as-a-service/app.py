@@ -8,7 +8,7 @@ app = Flask(__name__, static_url_path='')
 
 @app.route('/')
 def index():
-    return """<html><head></head><body><form action="/convert" method="post" enctype="multipart/form-data"><input type="file" name="file" id="file"><input type="submit" value="Upload Image" name="submit"></form></body></html>"""
+    return """<html><head></head><body><form action="/convert" method="post" enctype="multipart/form-data"><input type="file" name="file" id="file"><input type="submit" value="Upload PDF" name="submit"></form></body></html>"""
 
 @app.route('/convert', methods = ['GET', 'POST'])
 def convert():
@@ -20,14 +20,16 @@ def convert():
         if file.filename == '':
             return abort(400)
         if file:
-            images = pdf2image.convert_from_bytes(file)
-            zip_file_bytes = io.BytesIO()
-            zip_file_to_return = zipfile.ZipFile(zip_file_bytes)
+            images = pdf2image.convert_from_bytes(file.read())
+            zip_file_bytes = BytesIO()
+            zip_file = zipfile.ZipFile(zip_file_bytes, 'w')
             for i, im in enumerate(images):
-                im_bytesio = io.BytesIO()
+                im_bytesio = BytesIO()
                 im.save(im_bytesio, format='JPEG')
-                zip_file_to_return.writestr(i + '.jpg', im_bytesio.getvalue())
-            return send_file(zip_file_to_return, attachement_filename='images.zip')
+                zip_file.writestr(str(i) + '.jpg', im_bytesio.getvalue())
+            zip_file.close()
+            zip_file_bytes.seek(0)
+            return send_file(zip_file_bytes, as_attachment=True, attachment_filename='images.zip')
         else:
             return abort(500)
     else:
