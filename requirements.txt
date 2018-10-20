@@ -1,2 +1,0 @@
-flask
-pdf2image

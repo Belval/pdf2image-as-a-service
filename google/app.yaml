@@ -1,0 +1,20 @@
+runtime: custom
+env: flex
+service: default
+threadsafe: yes
+
+network:
+  forwarded_ports:
+    - 8080:5000
+
+automatic_scaling:
+  min_num_instances: 1
+  max_num_instances: 5
+  cool_down_period_sec: 120
+  cpu_utilization:
+    target_utilization: 0.5
+
+resources:
+  cpu: 1
+  memory_gb: 2
+  disk_size_gb: 10
