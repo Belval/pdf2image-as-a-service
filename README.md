@@ -17,6 +17,7 @@ Here's what each script does:
 ## Valuable information
 
 - The user that will be used to run this script must be part of the docker group otherwise it will not work.
+    - `sudo usermod -aG docker $USER`
 - When deployed on Google Cloud, the app is on port 80. When deployed to Azure it is on port 5000 because they do not offer port forwarding.
 
 ## My personal opinion regarding the providers
@@ -29,3 +30,5 @@ As of 2018, and after deploying on Google Cloud, Microsoft Azure, Amazon AWS:
 - Azure is, by far, the best web interface. It is clean, easy to use and there is a feeling of overall cohesion.
 - Using Kubernetes on Google Cloud felt more natural than on the other two.
 - Azure does not offer port forwarding. For example, I am serving my application on port 5000 on the container, but the instance cannot forward its traffic from 80 to 5000 easily. This is available with Google Cloud.
+- Amazon documentation feels very scarce and the UI to read it is unintuitive.
+- Amazon seems to aim for configuration using their UI with little "good" tutorial on how to use the aws cli tool.

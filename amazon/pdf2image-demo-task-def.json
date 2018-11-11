@@ -1,0 +1,22 @@
+{
+    "family": "pdf2image-demo",
+    "networkMode": "awsvpc",
+    "containerDefinitions": [
+        {
+            "name": "pdf2image-demo-app",
+            "image": "230779662357.dkr.ecr.us-east-1.amazonaws.com/pdf2image-demo-app",
+            "portMappings": [
+                {
+                    "containerPort": 5000,
+                    "hostPort": 5000
+                }
+            ],
+            "essential": true
+        }
+    ],
+    "requiresCompatibilities": [
+        "FARGATE"
+    ],
+    "cpu": "256",
+    "memory": "1024"
+}
