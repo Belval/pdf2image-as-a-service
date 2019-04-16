@@ -7,12 +7,21 @@ This is a completely fictional project that I made called "pdf2image-as-a-servic
 
 The interesting piece is not how such thing works, but how it can be deployed on the three most significant cloud providers, namely Google, Amazon and Microsoft.
 
-Here's what each script does:
+The project contains two projects `as-a-service` and `as-a-function`. The first one is about deploying the above as a container, while the second is about deploying as a function.
+
+Here's what each file in `as-a-service` does:
 
 - `app/app.py`: The application
 - `microsoft/azure.sh`: Deploy to Azure
 - `google/google_cloud.sh`: Deploy to Google Cloud
 - `amazon/aws.sh`: Deploy to AWS (Coming soon!)
+
+Now for `as-a-function`:
+
+- `build_poppler.sh`: Script to build poppler executable used by pdf2image
+- `microsoft/function.sh`: Deploy as a function to azure
+- `google/app_engine.sh`: Deploy as a function to GCP
+- `amazon/lambda.sh`: Deploy as a function on AWS
 
 ## Valuable information
 
@@ -31,4 +40,4 @@ As of 2018, and after deploying on Google Cloud, Microsoft Azure, Amazon AWS:
 - Using Kubernetes on Google Cloud felt more natural than on the other two.
 - Azure does not offer port forwarding. For example, I am serving my application on port 5000 on the container, but the instance cannot forward its traffic from 80 to 5000 easily. This is available with Google Cloud.
 - Amazon documentation feels very scarce and the UI to read it is unintuitive.
-- Amazon seems to aim for configuration using their UI with little "good" tutorial on how to use the aws cli tool.
+- Amazon seems to aim for configuration using their UI with little "good" tutorials on how to use the aws cli tool.
