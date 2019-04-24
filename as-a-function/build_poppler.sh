@@ -11,7 +11,7 @@ docker build -t poppler-build .
 docker run -d --name poppler-build-cont poppler-build sleep 10
 # Copy the library & executable files
 docker exec poppler-build-cont bash -c "rm -rf /poppler_binaries; mkdir /poppler_binaries; cp libpoppler.* /poppler_binaries/; cp utils/pdf* /poppler_binaries/"
-docker cp poppler-build-cont:/poppler_binaries/ ./poppler_binaries
+docker cp poppler-build-cont:/poppler_binaries/ .
 # Cleaning up
 docker container kill poppler-build-cont
 docker rm poppler-build-cont
