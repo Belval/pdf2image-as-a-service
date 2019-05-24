@@ -23,6 +23,13 @@ Now for `as-a-function`:
 - `google/app_engine.sh`: Deploy as a function to GCP
 - `amazon/lambda.sh`: Deploy as a function on AWS
 
+At the current time, only AWS Lambda works. You can run it with these steps:
+
+1. `cd as-a-function`
+2. `bash -c amazon/lambda.sh`
+
+The `output.json` is a dictionary containing the resulting images as base64.
+
 ## Valuable information
 
 - The user that will be used to run this script must be part of the docker group otherwise it will not work.
@@ -31,7 +38,7 @@ Now for `as-a-function`:
 
 ## My personal opinion regarding the providers
 
-Disclaimer: My experience with these services is shallow and the opinions you can read here are not to be taken as absolute. 
+Disclaimer: My experience with these services is shallow and the opinions you can read here are not to be taken as absolute.
 
 As of 2018, and after deploying on Google Cloud, Microsoft Azure, Amazon AWS:
 

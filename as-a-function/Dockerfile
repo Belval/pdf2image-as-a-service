@@ -16,4 +16,5 @@ RUN git clone https://anongit.freedesktop.org/git/poppler/poppler.git
 # Build
 RUN mkdir poppler/build
 WORKDIR poppler/build
-RUN cmake .. && make
+RUN cmake -E env CXXFLAGS="-static-libstdc++" cmake ..
+RUN make

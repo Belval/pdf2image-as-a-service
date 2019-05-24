@@ -1,3 +1,4 @@
 env/
 *.pem
 poppler_binaries/
+*.key
