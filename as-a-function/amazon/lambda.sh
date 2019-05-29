@@ -21,7 +21,6 @@ source env/bin/activate
 
 # Creating the package
 mkdir -p package
-pip3 install Pillow --target package/
 pip3 install pdf2image --target package/
 
 # Moving the poppler libraries in the package
