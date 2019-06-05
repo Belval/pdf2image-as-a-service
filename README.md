@@ -23,10 +23,10 @@ Now for `as-a-function`:
 - `google/app_engine.sh`: Deploy as a function to GCP
 - `amazon/lambda.sh`: Deploy as a function on AWS
 
-At the current time, only AWS Lambda works. You can run it with these steps:
+At the current time, only AWS Lambda and Google App Engine work. You can run it with these steps:
 
 1. `cd as-a-function`
-2. `bash -c amazon/lambda.sh`
+2. `bash -c amazon/lambda.sh` OR `bash -c google/app_engine.sh`
 
 The `output.json` is a dictionary containing the resulting images as base64.
 
