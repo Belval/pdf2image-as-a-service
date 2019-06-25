@@ -8,7 +8,7 @@ mkdir -p poppler_binaries
 # Build the image
 docker build -t poppler-build .
 # Run the container
-docker run -d --name poppler-build-cont test sleep 10
+docker run -d --name poppler-build-cont poppler-build sleep 10
 # Copy the library & executable files
 docker exec poppler-build-cont bash -c "rm -rf /poppler_binaries; mkdir /poppler_binaries; \
                                         cp $(ldconfig -p | grep libjpeg.so.8 | head -n 1 | tr ' ' '\n' | grep /) /poppler_binaries/; \
