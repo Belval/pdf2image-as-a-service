@@ -25,3 +25,4 @@ RUN cp $(locate liblcms2.so.2 ) /poppler_binaries/.
 RUN cp $(locate libtiff.so.5 ) /poppler_binaries/.
 RUN cp $(locate libexpat.so.1 ) /poppler_binaries/.
 RUN cp $(locate libjbig.so.0 ) /poppler_binaries/.
+RUN cp $(locate libfreetype.so.6) /poppler_binaries/.
